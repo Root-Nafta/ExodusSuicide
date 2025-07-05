@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>God Sees U</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <p class="top-text">GOD SEES U</p>
+    <a href="paginas/oi.html">
+      <div class="eye"></div>
+    </a>
+    <p class="bottom-text">BUT HE WON'T SAVE YOU</p>
+  </div>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="jaydes.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="audio-control">
+    <audio controls>
+      <source src="jaydes.mp3" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
+  </div>
+
+  <script>
+  // Fade-in ao carregar
+  window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('loaded');
+  });
+
+  // Fade-out ao clicar em qualquer link interno
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href && !href.startsWith('http')) {
+        e.preventDefault();
+        document.body.classList.remove('loaded');
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 400); // tempo deve ser igual ao da transição no CSS
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

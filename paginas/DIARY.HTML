@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DIARY</title>
+  <link rel="stylesheet" href="style-diary.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="layout">
+    <!-- COLUNA LATERAL -->
+    <aside class="sidebar">
+      <h1>D:ARY</h1>
+
+      <div class="music-player">
+        <audio controls>
+          <source src="Kicking Cars.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+
+      <div class="photo">
+        <img src="eue.gif" alt="Foto" />
+      </div>
+
+      <div class="updates">
+        <p>CHAT / UPDATES</p>
+
+        <div class="update-block">
+          <span class="update-time">04/07 • 14:00</span>
+          <p class="update-text">Nova tentativa de suicidio.</p>
+        </div>
+
+        <div class="update-block">
+          <span class="update-time">03/07 • 22:10</span>
+          <p class="update-text">Nova emoção.</p>
+        </div>
+
+        <div class="update-block">
+          <span class="update-time">02/07 • 16:30</span>
+          <p class="update-text">Eu ainda te odeio.</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL -->
+    <main class="main-content">
+      <h2>DIÁRIO</h2>
+
+      <div class="diario-bloco">
+        <button class="diario-toggle">[+] 04/07 - O dia foi um erro</button>
+        <div class="diario-conteudo">
+          <p>Hoje tudo pareceu mais fundo. Mais falso. Mais eu.</p>
+        </div>
+      </div>
+
+      <div class="diario-bloco">
+        <button class="diario-toggle">[+] 03/07 - Me escondi no teto</button>
+        <div class="diario-conteudo">
+          <p>As paredes estavam molhadas de barulho. Ninguém percebeu.</p>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    // Fade-in ao carregar
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('loaded');
+
+      const toggles = document.querySelectorAll('.diario-toggle');
+
+      toggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const content = toggle.nextElementSibling;
+          const expanded = content.style.display === 'block';
+
+          document.querySelectorAll('.diario-conteudo').forEach(el => el.style.display = 'none');
+          document.querySelectorAll('.diario-toggle').forEach(btn => {
+            if (btn.textContent.startsWith("[-]")) {
+              btn.textContent = btn.textContent.replace("[-]", "[+]");
+            }
+          });
+
+          if (!expanded) {
+            content.style.display = 'block';
+            toggle.textContent = toggle.textContent.replace("[+]", "[-]");
+          }
+        });
+      });
+    });
+
+    // Fade-out ao clicar em qualquer link interno
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('http')) {
+          e.preventDefault();
+          document.body.classList.remove('loaded');
+          document.body.classList.add('fade-out');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 400);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

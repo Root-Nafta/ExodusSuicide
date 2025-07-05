@@ -1,0 +1,158 @@
+/* Reset e base */
+body {
+  margin: 0;
+  background-color: black;
+  font-family: 'Share Tech Mono', monospace;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Layout geral */
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Barra lateral */
+.sidebar {
+  width: 260px;
+  min-width: 260px;
+  padding: 20px;
+  background-color: black;
+  border-right: 1px solid #444;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.sidebar h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.music-player audio {
+  width: 100%;
+  filter: grayscale(100%) brightness(0.8);
+}
+
+.photo img {
+  width: 100%;
+  max-width: 160px;
+  object-fit: cover;
+  border: 1px solid #555;
+}
+
+/* Updates */
+.updates {
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.updates p {
+  margin-bottom: 10px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.update-block {
+  background-color: #111;
+  border: 1px solid #444;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.update-time {
+  font-size: 10px;
+  color: #888;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.update-text {
+  font-size: 11px;
+  color: #ccc;
+  margin: 0;
+}
+
+/* Conteúdo principal */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Corrige a posição */
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.main-content h2 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.poema-box {
+  background-color: #111;
+  border: 1px solid #444;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  color: white;
+  text-align: left;
+}
+
+.poema-bloco {
+  background-color: #111;
+  border: 1px solid #444;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 0 10px #000;
+  overflow: hidden;
+}
+
+.poema-toggle {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-family: 'Share Tech Mono', monospace;
+  text-align: left;
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.poema-toggle:hover {
+  background-color: #222;
+}
+
+.poema-conteudo {
+  padding: 0 20px 20px;
+  display: none;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

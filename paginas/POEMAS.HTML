@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poemas</title>
+  <link rel="stylesheet" href="style-poemas.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body class="fade">
+  <div class="layout">
+    <!-- COLUNA LATERAL -->
+    <aside class="sidebar">
+      <h1>P:EMS</h1>
+
+      <div class="music-player">
+        <audio controls>
+          <source src="6. I MONSTER - Who Is She_.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+
+      <div class="photo">
+        <img src="laihhhn3.gif" alt="Foto" />
+      </div>
+
+      <div class="updates">
+        <p>CHAT / UPDATES</p>
+
+        <div class="update-block">
+          <span class="update-time">04/07 • 14:00</span>
+          <p class="update-text">Novo poema adicionado à seção P:EMS.</p>
+        </div>
+
+        <div class="update-block">
+          <span class="update-time">03/07 • 22:10</span>
+          <p class="update-text">Layout ajustado para modo glitch.</p>
+        </div>
+
+        <div class="update-block">
+          <span class="update-time">02/07 • 16:30</span>
+          <p class="update-text">Adicionada música jaydes.mp3 à página inicial.</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+   <main class="main-content">
+  <h2>POEMAS</h2>
+
+  <div class="poema-bloco">
+  <button class="poema-toggle">[+] A quiet room</button>
+  <div class="poema-conteudo">
+    <p>A quiet room where light refuses to stay.</p>
+    <p>I breathe static.</p>
+    <p>and feel more wire than body.</p>
+  </div>
+</div>
+
+
+  <div class="poema-bloco">
+  <button class="poema-toggle">[+] A quiet room</button>
+  <div class="poema-conteudo">
+    <p>A quiet room where light refuses to stay.</p>
+    <p>I breathe static.</p>
+    <p>and feel more wire than body.</p>
+  </div>
+</div>
+
+
+  <!-- Adicione mais blocos aqui -->
+</main>
+
+  </div>
+
+  <script>
+    // Fade-in ao carregar
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('loaded');
+    });
+
+    // Fade-out ao clicar em qualquer link interno
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('http')) {
+          e.preventDefault();
+          document.body.classList.remove('loaded');
+          document.body.classList.add('fade-out');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 400);
+        }
+      });
+    });
+  </script>
+
+  <script>
+  const toggles = document.querySelectorAll('.poema-toggle');
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const content = toggle.nextElementSibling;
+      const expanded = content.style.display === 'block';
+
+      document.querySelectorAll('.poema-conteudo').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.poema-toggle').forEach(btn => {
+        if (btn.textContent.startsWith("[-]")) {
+          btn.textContent = btn.textContent.replace("[-]", "[+]");
+        }
+      });
+
+      if (!expanded) {
+        content.style.display = 'block';
+        toggle.textContent = toggle.textContent.replace("[+]", "[-]");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

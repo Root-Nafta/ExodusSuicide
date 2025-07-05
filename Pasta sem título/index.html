@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seu Site Cutegore</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Sniglet&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <h1 class="title-glitch">EXODUSSUICIDE</h1>
+    <p class="sub">all hell in one life</p>
+    <div class="menu">
+      <a href="pems.html">P:EMS</a>
+      <a href="msic.html">M:SIC</a>
+      <a href="dary.html">D:ARY</a>
+      <a href="drwings.html">DR:WINGS</a>
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="jaydes.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.style.opacity = 1;
+  });
+  document.body.style.opacity = 0;
+  document.body.style.transition = 'opacity 0.6s';
+  document.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href && !href.startsWith('http')) {
+        e.preventDefault();
+        document.body.style.opacity = 0;
+        setTimeout(() => location = href, 600);
+      }
+    });
+  });
+</script>
+
+<section>
+  <h2>About Me</h2>
+  <ul>
+    <li>🩷 Something personal</li>
+    <li>⚙️ Interests</li>
+    <li>🧠 F/o list</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Off-Site</h2>
+  <ul>
+    <li><a href="https://tumblr.com">Tumblr</a></li>
+    <li><a href="https://toyhouse.com">Toyhouse</a></li>
+  </ul>
+</section>
+
+</body>
+</html>
