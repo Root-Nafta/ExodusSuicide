@@ -156,3 +156,18 @@ body.loaded {
   to { opacity: 1; transform: translateY(0); }
 }
 
+.poema-bloco-content {
+  max-height: 400px; /* ajuste a altura como preferir */
+  overflow-y: auto;
+  padding-right: 10px; /* evita cortar texto no scroll */
+}
+
+.poema-bloco-content::-webkit-scrollbar {
+  width: 6px;
+}
+.poema-bloco-content::-webkit-scrollbar-thumb {
+  background-color: #444;
+}
+.poema-bloco-content::-webkit-scrollbar-track {
+  background-color: #111;
+}
